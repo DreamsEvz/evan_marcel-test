@@ -1,21 +1,21 @@
 import './style.css'
+import readline from 'readline';
 
 
-let inputElement = document.getElementById('input') as HTMLInputElement;
-
-let buttonElement = document.getElementById('button');
-if (buttonElement) {
-  buttonElement.addEventListener('click', () => {
-    const string = inputElement.value;
-    const result = revertString(string);
-    const bonjourOrBonsoir = sayBonjourOrBonsoir();
-    const isPalindrome = result == string; 
-    console.log(`${bonjourOrBonsoir} Voici votre mot à l'envers : ${result} ! ${isPalindrome ? "Bien dit !" : null} `);
-  });
-}
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
 
 
-//write a function that reverts a string
+rl.question('Quel est votre mot ? ', (answer) => {
+  const result = revertString(answer);
+  const bonjourOrBonsoir = sayBonjourOrBonsoir();
+  const isPalindrome = result == answer;
+  console.log(`${bonjourOrBonsoir} Voici votre mot à l'envers : ${result} ! ${isPalindrome ? "Bien dit !" : null} `);
+  rl.close();
+});
+
 function revertString(string: string) {
   return string.split('').reverse().join('');
 }
