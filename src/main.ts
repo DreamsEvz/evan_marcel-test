@@ -12,7 +12,7 @@ rl.question('Quel est votre mot ? ', (answer) => {
   const result = revertString(answer);
   const bonjourOrBonsoir = sayBonjourOrBonsoir();
   const isPalindrome = result == answer;
-  console.log(`${bonjourOrBonsoir} Voici votre mot à l'envers : ${result} ! ${isPalindrome ? "Bien dit !" : null} `);
+  console.log(`${bonjourOrBonsoir} Voici votre mot à l'envers : ${result} ! ${isPalindrome ? "Bien dit !" : ""}`);
   rl.close();
 });
 
